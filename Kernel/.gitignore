@@ -37,7 +37,7 @@ modules.builtin
 #
 tags
 TAGS
-linux
+#linux
 vmlinux
 vmlinuz
 System.map
