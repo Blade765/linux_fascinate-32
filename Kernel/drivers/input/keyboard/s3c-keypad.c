@@ -352,10 +352,10 @@ static int s3c_keygpio_isr_setup(void *pdev)
 		return ret;
 	}
 	//volume up
-	s3c_gpio_setpull(S5PV210_GPH3(2), S3C_GPIO_PULL_NONE);
-	set_irq_type(IRQ_EINT(26), IRQ_TYPE_EDGE_BOTH);
+	s3c_gpio_setpull(S5PV210_GPH3(3), S3C_GPIO_PULL_NONE);
+	set_irq_type(IRQ_EINT(27), IRQ_TYPE_EDGE_BOTH);
 	ret =
-	    request_irq(IRQ_EINT(26), s3c_keygpio_vol_up26_isr,
+	    request_irq(IRQ_EINT(27), s3c_keygpio_vol_up26_isr,
 			IRQF_SAMPLE_RANDOM, "key vol up(26)", (void *)pdev);
 	if (ret) {
 		printk
