@@ -1,8 +1,16 @@
+Fascinate additions:
+
+Custom Fascinate defconfig is at:
+make fascinate_defconfig
+
+Now the original Voodoo README:
+
+_______________________________________
+
 Voodoo additions:
 
 Voodoo come with a custom defconfig, you can do:
 make aries_eur_voodoo_all_defconfig
-
 
 Now the original Samsung README:
 ________________________________
