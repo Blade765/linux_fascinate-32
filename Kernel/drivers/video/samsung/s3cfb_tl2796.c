@@ -759,13 +759,6 @@ static DEVICE_ATTR(aclset_file_cmd,0666, aclset_file_cmd_show, aclset_file_cmd_s
 #endif
 
 
-#ifdef CONFIG_FB_S3C_MDNIE_TUNINGMODE_FOR_BACKLIGHT
-extern void mDNIe_Mode_set_for_backlight(u16 *buf);
-extern u16 *pmDNIe_Gamma_set[];
-extern int pre_val;
-extern int autobrightness_mode;
-#endif
-
 static void wait_ldi_enable(void)
 {
 	int i = 0;
@@ -893,19 +886,6 @@ static int s5p_bl_update_status(struct backlight_device* bd)
 
 	if (level == BACKLIGHT_LEVEL_OFF)
 		return 0;
-
-#ifdef CONFIG_FB_S3C_MDNIE_TUNINGMODE_FOR_BACKLIGHT
-
-#if defined(CONFIG_ARIES_LATONA)
-	if ((pre_val==1) && (gamma_value < MAX_BACKLIGHT_VALUE) &&(autobrightness_mode)) 	{
-#else
-	if ((pre_val==1) && (gamma_value < 24) &&(autobrightness_mode))		{
-#endif
-		mDNIe_Mode_set_for_backlight(pmDNIe_Gamma_set[2]);
-		gprintk("s5p_bl_update_status - pmDNIe_Gamma_set[2]\n" );
-		pre_val = -1;
-	}
-#endif
 
 #if defined(CONFIG_ARIES_LATONA)
     printk("[bl]%d", bl);
